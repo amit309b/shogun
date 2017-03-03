@@ -29,7 +29,7 @@
 #include <shogun/evaluation/GradientCriterion.h>
 #include <shogun/modelselection/GradientModelSelection.h>
 #include <shogun/mathematics/Math.h>
-#include <shogun/optimization/NLOPTMinimizer.h>
+#include <shogun_gpl/optimization/NLOPTMinimizer.h>
 
 #include <gtest/gtest.h>
 

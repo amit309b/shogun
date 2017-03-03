@@ -11,8 +11,8 @@ include(CheckFunctionExists)
 include(CheckCXXSourceCompiles)
 include(CMakePackageConfigHelpers)
 
-FILE(GLOB_RECURSE LIBSHOGUN_SRC *.${EXT_SRC_CPP} *.${EXT_SRC_C})
-FILE(GLOB_RECURSE LIBSHOGUN_HEADERS *.${EXT_SRC_HEADER})
+FILE(GLOB_RECURSE LIBSHOGUN_SRC *.${EXT_SRC_CPP} *.${EXT_SRC_C} ${CMAKE_SOURCE_DIR}/src/shogun_gpl/*.${EXT_SRC_CPP} ${CMAKE_SOURCE_DIR}/src/shogun_gpl/*.${EXT_SRC_C} )
+FILE(GLOB_RECURSE LIBSHOGUN_HEADERS *.${EXT_SRC_HEADER} ${CMAKE_SOURCE_DIR}/src/shogun_gpl/*.${EXT_SRC_HEADER})
 FILE(GLOB_RECURSE LIBSHOGUN_SRC_TMP *.${EXT_CPP_TMP})
 
 IF(ENABLE_TESTING AND BUILD_META_EXAMPLES)
@@ -495,7 +495,7 @@ IF (CTAGS_FOUND)
         COMMAND ${CTAGS_EXECUTABLE} -f ${CTAGS_FILE}
         # functions, classes, macroses, enumerations, enumerators, typedefs
         --c++-kinds=fcdget
-        -R ${CMAKE_CURRENT_SOURCE_DIR})
+        -R ${CMAKE_CURRENT_SOURCE_DIR} -R ${CMAKE_SOURCE_DIR}/src/shogun_gpl/)
     ADD_CUSTOM_TARGET(ctags DEPENDS ${CTAGS_FILE})
     SET_SOURCE_FILES_PROPERTIES(${CTAGS_FILE} PROPERTIES GENERATED 1)
 ENDIF()
